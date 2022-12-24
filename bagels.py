@@ -11,7 +11,20 @@ print('I have thought up a number.')
 print(' You have 10 guesses to get it.')
 
 random_number = [str(random.randrange(10)), str(random.randrange(10)), str(random.randrange(10)) ]
+#random_number = (str(random.randrange(10)) + str(random.randrange(10)) + str(random.randrange(10)))
 print(random_number)
 
 for i in range(1,11):
-    user_guess = input('Guess #' + str(i))
+    user_guess = input('Guess #' + str(i) + ': ')
+    if user_guess.isnumeric() == False:
+        print('Please choose a number')
+        i = i-1
+        continue
+        
+
+    user_guess = int(user_guess)
+
+        
+#    for n in range(2):
+ #       if random_number(n) == user_guess(n):
+  #          print('bagel')
