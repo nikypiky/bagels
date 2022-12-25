@@ -16,6 +16,7 @@ def main():
     computer_number = [(random.randrange(10)), (random.randrange(10)), (random.randrange(10)) ]
 
     for i in range(1,11):
+        print(i)
 #request and validate user input
         user_number = input('Guess #' + str(i) + ': ')
         if user_number.isnumeric() == False or len(user_number) != 3:
@@ -40,9 +41,14 @@ def main():
             print('Congratulations! You have found the right number!!')
             break
         print(i)
-        if i == 10:
-            print('Sorry, you lost! The correct answer was ' + computer_number)
+        
         print('Fermi '* fermi + 'Pico ' * pico)
+
+    else:
+#        computer_number_str = (int.join(computer_number))
+ #       print(type(computer_number_str))
+        print('Sorry, you lost! The correct answer was ' + ''.join(map(str, computer_number)))
+        print()
 
 #game repeat question for incorect user response
     def game_repeat():
