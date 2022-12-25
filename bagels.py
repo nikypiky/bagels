@@ -40,18 +40,40 @@ def main():
             print('Sorry, you lost!')
         print('Fermi '* fermi + 'Pico ' * pico)
 
-    def game_repeat(): 
-        user_response= input('Do you want to play again? (yes or no) ')
 
-        if user_response == 'yes':
+    def game_repeat():
+        additional_user_response = input('Please choose yes or no. ')
+        if user_response or additional_user_response == 'yes':
             main()
-        elif user_response == 'no':
-            print('Thank you for playing, have a nice day.')
+        elif user_response or additional_user_response == 'no':
+            print('Thank you for playing, have a nice day. ')
+            print()
             exit(main)
         else:
-            print('Please choose yes or no.')
-            game_repeat()
-    game_repeat()
+            additional_user_response = input('Please choose yes or no. ')
+            game_repeat()  
+               
 
+    user_response= input('Do you want to play again? (yes or no) ')
+    if user_response == 'yes':
+        main()
+    elif user_response == 'no':
+        print('Thank you for playing, have a nice day. ')
+        print()
+        exit(main)
+    else:
+        game_repeat()
+
+    def game_repeat():
+        additional_user_response = input('Please choose yes or no. ')
+        if user_response or additional_user_response == 'yes':
+            main()
+        elif user_response or additional_user_response == 'no':
+            print('Thank you for playing, have a nice day.')
+            print()
+            exit(main)
+        else:
+            additional_user_response = input('Please choose yes or no.')
+            game_repeat()
 
 main()
