@@ -24,8 +24,10 @@ for i in range(1,11):
     for n in range(3):  
         if int(computer_number[n]) == int(user_number[n]):
             fermi = fermi + 1
-        elif int(user_number[n] in computer_number):
-            piko = piko + 1
-        else:
-            print('Bagel')
+            continue
+        if int(user_number[n]) in computer_number:
+            pico = pico + 1
 
+    if pico == 0 and fermi == 0:
+        print('Bagels')
+    print('Fermi '* fermi + 'Pico ' * pico)
