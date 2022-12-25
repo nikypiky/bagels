@@ -10,30 +10,48 @@ print('  Bagels       No digit is correct.')
 print('I have thought up a number.')
 print(' You have 10 guesses to get it.')
 
-computer_number = [(random.randrange(10)), (random.randrange(10)), (random.randrange(10)) ]
-print(computer_number)
+def main():
+    computer_number = [(random.randrange(10)), (random.randrange(10)), (random.randrange(10)) ]
+    print(computer_number)
 
-for i in range(1,11):
-    user_number = input('Guess #' + str(i) + ': ')
-    if user_number.isnumeric() == False or len(user_number) != 3:
-        print('Please choose a three digit number')
-        continue 
+    for i in range(1,5):
+        user_number = input('Guess #' + str(i) + ': ')
+        if user_number.isnumeric() == False or len(user_number) != 3:
+            print('Please choose a three digit number')
+            continue 
 
-    fermi = 0
-    pico = 0
-    
-    for n in range(3):  
-        if int(computer_number[n]) == int(user_number[n]):
-            fermi = fermi + 1
-            continue
-        if int(user_number[n]) in computer_number:
-            pico = pico + 1
+        fermi = 0
+        pico = 0
+        
+        for n in range(3):  
+            if int(computer_number[n]) == int(user_number[n]):
+                fermi = fermi + 1
+                continue
+            if int(user_number[n]) in computer_number:
+                pico = pico + 1
 
-    if pico == 0 and fermi == 0:
-        print('Bagels')
-    if fermi == 3:
-        print('Congratulations! You have found the right number!!')
-        break
-    if i == 2:
-        print('Sorry, you lost!')
-    print('Fermi '* fermi + 'Pico ' * pico)
+        if pico == 0 and fermi == 0:
+            print('Bagels')
+        if fermi == 3:
+            print('Congratulations! You have found the right number!!')
+            break
+        print(i)
+        if i == 10:
+            print('Sorry, you lost!')
+        print('Fermi '* fermi + 'Pico ' * pico)
+
+    def game_repeat(): 
+        user_response= input('Do you want to play again? (yes or no) ')
+
+        if user_response == 'yes':
+            main()
+        elif user_response == 'no':
+            print('Thank you for playing, have a nice day.')
+            exit(main)
+        else:
+            print('Please choose yes or no.')
+            game_repeat()
+    game_repeat()
+
+
+main()
