@@ -15,9 +15,10 @@ print(computer_number)
 
 for i in range(1,11):
     user_number = input('Guess #' + str(i) + ': ')
-    if user_number.isnumeric() == False:
-        print('Please choose a number')
+    if user_number.isnumeric() == False or len(user_number) != 3:
+        print('Please choose a three digit number')
         continue 
+
     fermi = 0
     pico = 0
     
@@ -30,4 +31,9 @@ for i in range(1,11):
 
     if pico == 0 and fermi == 0:
         print('Bagels')
+    if fermi == 3:
+        print('Congratulations! You have found the right number!!')
+        break
+    if i == 2:
+        print('Sorry, you lost!')
     print('Fermi '* fermi + 'Pico ' * pico)
