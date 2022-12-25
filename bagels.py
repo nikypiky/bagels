@@ -1,6 +1,7 @@
 import math
 import random
 
+#initial instructions
 print('I am thinking of a 3-digit number. Try to guess what it is.')
 print('Here are some clues:')
 print('When I say:    That means:')
@@ -11,10 +12,11 @@ print('I have thought up a number.')
 print(' You have 10 guesses to get it.')
 
 def main():
+#generate computer number
     computer_number = [(random.randrange(10)), (random.randrange(10)), (random.randrange(10)) ]
-    print(computer_number)
 
-    for i in range(1,5):
+    for i in range(1,11):
+#request and validate user input
         user_number = input('Guess #' + str(i) + ': ')
         if user_number.isnumeric() == False or len(user_number) != 3:
             print('Please choose a three digit number')
@@ -22,7 +24,8 @@ def main():
 
         fermi = 0
         pico = 0
-        
+
+#compare user number to computer number
         for n in range(3):  
             if int(computer_number[n]) == int(user_number[n]):
                 fermi = fermi + 1
@@ -30,6 +33,7 @@ def main():
             if int(user_number[n]) in computer_number:
                 pico = pico + 1
 
+#calculate number of pico and fermi + set win/loose conditions
         if pico == 0 and fermi == 0:
             print('Bagels')
         if fermi == 3:
@@ -37,10 +41,10 @@ def main():
             break
         print(i)
         if i == 10:
-            print('Sorry, you lost!')
+            print('Sorry, you lost! The correct answer was ' + computer_number)
         print('Fermi '* fermi + 'Pico ' * pico)
 
-
+#game repeat question for incorect user response
     def game_repeat():
         additional_user_response = input('Please choose yes or no. ')
         if user_response or additional_user_response == 'yes':
@@ -53,7 +57,7 @@ def main():
             additional_user_response = input('Please choose yes or no. ')
             game_repeat()  
                
-
+#game repeat question after user finishes game
     user_response= input('Do you want to play again? (yes or no) ')
     if user_response == 'yes':
         main()
@@ -64,16 +68,5 @@ def main():
     else:
         game_repeat()
 
-    def game_repeat():
-        additional_user_response = input('Please choose yes or no. ')
-        if user_response or additional_user_response == 'yes':
-            main()
-        elif user_response or additional_user_response == 'no':
-            print('Thank you for playing, have a nice day.')
-            print()
-            exit(main)
-        else:
-            additional_user_response = input('Please choose yes or no.')
-            game_repeat()
 
 main()
