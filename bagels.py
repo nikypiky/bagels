@@ -10,22 +10,22 @@ print('  Bagels       No digit is correct.')
 print('I have thought up a number.')
 print(' You have 10 guesses to get it.')
 
-random_number = [(random.randrange(10)), (random.randrange(10)), (random.randrange(10)) ]
-#random_number = (str(random.randrange(10)) + str(random.randrange(10)) + str(random.randrange(10)))
-print(random_number)
+computer_number = [(random.randrange(10)), (random.randrange(10)), (random.randrange(10)) ]
+print(computer_number)
 
 for i in range(1,11):
-    user_guess = input('Guess #' + str(i) + ': ')
-    if user_guess.isnumeric() == False:
+    user_number = input('Guess #' + str(i) + ': ')
+    if user_number.isnumeric() == False:
         print('Please choose a number')
         continue 
-   # print(random_number[1])
-    #print(user_guess[1])  
+    fermi = 0
+    pico = 0
+    
     for n in range(3):  
- #       print(random_number[n])  
-#        print(user_guess[n]) 
-        if int(random_number[n]) == int(user_guess[n]):
-            print('bagel')
-#    user_guess = int(user_guess)
-#    for n in range(2):
+        if int(computer_number[n]) == int(user_number[n]):
+            fermi = fermi + 1
+        elif int(user_number[n] in computer_number):
+            piko = piko + 1
+        else:
+            print('Bagel')
 
