@@ -10,13 +10,12 @@ print('  Fermi        One digit is correct and in the right position.')
 print('  Bagels       No digit is correct.')
 print('I have thought up a number.')
 print(' You have 10 guesses to get it.')
-
 def main():
 #generate computer number
     computer_number = [(random.randrange(10)), (random.randrange(10)), (random.randrange(10)) ]
 
     for i in range(1,11):
-#        print(computer_number)
+        print(computer_number)
 #request and validate user input
         user_number = input('Guess #' + str(i) + ': ')
         if user_number.isnumeric() == False or len(user_number) != 3:
@@ -28,12 +27,12 @@ def main():
 
 #compare user number to computer number
         for n in range(3):  
-            if int(computer_number[n]) == int(user_number[n]):
-                fermi = fermi + 1
-                continue
-            elif int(user_number[n]) in computer_number:
-                pico = pico + 1
-                continue
+            try:
+                if int(computer_number[n]) == int(user_number[n]):
+                    fermi = fermi + 1
+            except:
+                if int(user_number[n]) in computer_number:
+                    pico = pico + 1
 
 
 #calculate number of pico and fermi + set win/loose conditions
