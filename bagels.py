@@ -42,7 +42,6 @@ def main():
         if fermi == 3:
             print('Congratulations! You have found the right number!!')
             break
-        print(i)
         
         print('Fermi '* fermi + 'Pico ' * pico)
 
